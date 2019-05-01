@@ -5,9 +5,6 @@ import NameForm from './components/NameForm';
 import Calculator from './components/Calculator';
 import FancyBorder from './components/FancyBorder';
 
-
-
-
 class App extends Component {
   render() {
     return (
@@ -17,12 +14,8 @@ class App extends Component {
         {/* <NameForm /> */}
         {/* <Calculator /> */}
         <FancyBorder color="blue">
-          <h1 className="Dialog-title">
-            Welcome
-          </h1>
-          <p className="Dialog-message">
-            Thank you for visiting our spacecraft!
-          </p>
+          <h1 className="Dialog-title">Welcome</h1>
+          <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
         </FancyBorder>
       </div>
     );
