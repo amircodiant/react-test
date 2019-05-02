@@ -31,30 +31,12 @@ class BoilingVerdict extends Component {
     const { scale } = this.props;
     const { temperature } = this.props;
     if (scale === 'c' && temperature >= 100) {
-      return (
-        <p>
-[
-          {scale}
-] The water would boil.
-        </p>
-      );
+      return <p>The water would boil.</p>;
     }
     if (scale === 'f' && temperature >= 212) {
-      return (
-        <p>
-[
-          {scale}
-] The water would boil.
-        </p>
-      );
+      return <p>The water would boil.</p>;
     }
-    return (
-      <p>
-[
-        {scale}
-] The water would not boil.
-      </p>
-    );
+    return <p>The water would not boil.</p>;
   }
 }
 

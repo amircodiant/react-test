@@ -4,6 +4,7 @@ import Clock from './components/Clock';
 import NameForm from './components/NameForm';
 import Calculator from './components/Calculator';
 import FancyBorder from './components/FancyBorder';
+import SplitPane from './components/SplitPane';
 
 class App extends Component {
   render() {
@@ -13,10 +14,18 @@ class App extends Component {
         {/* <Clock /> */}
         {/* <NameForm /> */}
         {/* <Calculator /> */}
-        <FancyBorder color="blue">
-          <h1 className="Dialog-title">Welcome</h1>
-          <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
-        </FancyBorder>
+
+        <SplitPane
+          left={<Clock />}
+          right={(
+            <FancyBorder color="blue">
+              <h1 className="Dialog-title">Welcome</h1>
+              <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
+            </FancyBorder>
+)}
+        />
+
+        <Calculator />
       </div>
     );
   }
