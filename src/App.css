@@ -1,7 +1,3 @@
-html, body, #root {
-  width: 100%;
-  height: 100%;
-}
 .App {
   text-align: center;
 }
@@ -34,39 +30,4 @@ html, body, #root {
   to {
     transform: rotate(360deg);
   }
-}
-
-.FancyBorder {
-  padding: 10px 10px;
-  border: 10px solid;
-}
-
-.FancyBorder-blue {
-  border-color: blue;
-}
-
-.Dialog-title {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.Dialog-message {
-  font-size: larger;
-}
-
-.SplitPane {
-  width: 100%;
-  height: 100%;
-}
-
-.SplitPane-left {
-  float: left;
-  width: 30%;
-  height: 100%;
-}
-
-.SplitPane-right {
-  float: left;
-  width: 70%;
-  height: 100%;
 }
