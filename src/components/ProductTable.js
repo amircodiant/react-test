@@ -4,22 +4,28 @@ import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
 class ProductTable extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      products: [
-        { name: 'Football', price: 100, category: 'sport' },
-        { name: 'Basketball', price: 95, category: 'sport' },
-        { name: 'Baseball', price: 110, category: 'sport' },
-        { name: 'iPod Touch', price: 99, category: 'electronics' },
-        { name: 'iPhone5', price: 95, category: 'electronics' },
-        { name: 'Nexus7', price: 50, category: 'electronics' },
-      ],
-    };
-  }
-
   render() {
+    const filterText = this.props.filterText;
+    const inStockOnly = this.props.inStockOnly;
+
+    const rows = [];
+    let lastCategory = null;
+
+    this.props.products.forEach((product) => {
+      // if (product.name.indexOf(filterText) === -1) {
+      //   return;
+      // }
+      if (inStockOnly && !product.stocked) {
+        return;
+      }
+
+      if (product.category !== lastCategory) {
+        rows.push(<ProductCategoryRow category={product.category} key={product.category} />);
+      }
+      rows.push(<ProductRow product={product} key={product.name} />);
+      lastCategory = product.category;
+    });
+
     return (
       <div>
         <Table striped bordered hover>
@@ -29,17 +35,7 @@ class ProductTable extends Component {
               <th>Price</th>
             </tr>
           </thead>
-          <tbody>
-            <ProductCategoryRow category="Sports" />
-            <ProductRow product={this.state.products[0]} />
-            <ProductRow product={this.state.products[1]} />
-            <ProductRow product={this.state.products[2]} />
-
-            <ProductCategoryRow category="Electronics" />
-            <ProductRow product={this.state.products[3]} />
-            <ProductRow product={this.state.products[4]} />
-            <ProductRow product={this.state.products[5]} />
-          </tbody>
+          <tbody>{rows}</tbody>
         </Table>
       </div>
     );
