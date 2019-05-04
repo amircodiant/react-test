@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import Clock from './components/Clock';
-import NameForm from './components/NameForm';
-import Calculator from './components/Calculator';
-import FancyBorder from './components/FancyBorder';
-import SplitPane from './components/SplitPane';
+import Login from './pages/Login';
+import MenuBar from './pages/layout/MenuBar';
+import UserList from './pages/UserList';
+import UserExpenses from './pages/UserExpenses';
+import ExpenseReport from './pages/ExpenseReport';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>React-App</h1>
-        {/* <Clock /> */}
-        {/* <NameForm /> */}
-        {/* <Calculator /> */}
+        <MenuBar />
+        <div className="container">
+          <UserList />
+          <UserExpenses />
+          <ExpenseReport />
+        </div>
 
-        <SplitPane
-          left={<Clock />}
-          right={(
-            <FancyBorder color="blue">
-              <h1 className="Dialog-title">Welcome</h1>
-              <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
-            </FancyBorder>
-)}
-        />
-
-        <Calculator />
+        <Login />
       </div>
     );
   }
